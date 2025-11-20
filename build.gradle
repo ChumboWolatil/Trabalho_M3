@@ -1,18 +1,17 @@
-// Top-level build file
 buildscript {
-    repositories {
-        google()
-        mavenCentral()
-    }
     dependencies {
-        classpath 'com.android.tools.build:gradle:8.1.0'
-        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.47'
-        classpath 'com.google.gms:google-services:4.4.0' // for Firebase (optional)
+        // It's recommended to update the Hilt plugin as well
+        classpath 'com.google.dagger:hilt-android-gradle-plugin:2.51.1'
     }
 }
-allprojects {
-    repositories {
-        google()
-        mavenCentral()
-    }
+plugins {
+    // A declaração 'id 'com.android.library' ...' pode ser mantida se você tiver módulos do tipo library
+    // e não tiver um alias para ela no arquivo TOML.
+    id 'com.android.library' version '8.1.3' apply false
+
+    // Mantenha apenas os alias para os plugins já definidos no libs.versions.toml
+    alias(libs.plugins.android.application) apply false
+    alias(libs.plugins.kotlin.android) apply false
 }
+
+
