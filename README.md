@@ -6,7 +6,7 @@ Este projeto é um esqueleto pronto para importar no Android Studio e contém:
 - Navigation Compose
 - Integração com Room (SQLite) e esqueleto para Firebase (Firestore + Auth)
 
-**O arquivo que você enviou está incluído em**: `/imported_original/Trabalho_M3.zip` inside this package.
+
 
 ## Como usar
 1. Abra o Android Studio > Open > selecione a pasta `calendario_project` (ou o ZIP).
