@@ -1,5 +1,7 @@
 <manifest package="com.example.calendario" xmlns:android="http://schemas.android.com/apk/res/android">
     <application
+        android:name=".CalendarApp"
+        android:theme="@style/Theme.Calendario"
         android:label="Calendario"
         android:allowBackup="true"
         android:supportsRtl="true">

@@ -5,12 +5,14 @@ import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface EventDao {
+
     @Query("SELECT * FROM events ORDER BY timestamp DESC")
-    fun getAll(): Flow<List<EventEntity>>
+    fun getEvents(): Flow<List<EventEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insert(event: EventEntity)
+    suspend fun insertEvent(event: com.example.calendario.data.local.EventEntity)
 
     @Delete
-    suspend fun delete(event: EventEntity)
+    suspend fun deleteEvent(event: EventEntity)
 }
+

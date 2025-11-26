@@ -2,7 +2,7 @@ package com.example.calendario.ui.viewmodel
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.example.calendario.domain.model.Event
+import com.example.calendario.data.local.EventEntity
 import com.example.calendario.domain.repository.AgendaRepository
 import com.example.calendario.ui.state.AgendaEvent
 import com.example.calendario.ui.state.AgendaState
@@ -11,18 +11,22 @@ import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
 import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
+import javax.inject.Inject
+import kotlin.collections.find
 
-class AgendaViewModel(
+class AgendaViewModel @Inject constructor(
     private val repo: AgendaRepository
-): ViewModel() {
+) : ViewModel() {
 
     private val _state = MutableStateFlow(AgendaState())
     val state: StateFlow<AgendaState> = _state.asStateFlow()
 
-    init { process(AgendaEvent.Load) }
+    init {
+        process(AgendaEvent.Load)
+    }
 
     fun process(event: AgendaEvent) {
-        when(event) {
+        when (event) {
             is AgendaEvent.Load -> observe()
             is AgendaEvent.Add -> add(event)
             is AgendaEvent.Delete -> delete(event.id)
@@ -39,7 +43,8 @@ class AgendaViewModel(
 
     private fun add(e: AgendaEvent.Add) {
         viewModelScope.launch {
-            val ev = Event(title = e.title, description = e.description, timestamp = e.timestamp)
+            val ev =
+                EventEntity(title = e.title, description = e.description, timestamp = e.timestamp)
             repo.addEvent(ev)
         }
     }

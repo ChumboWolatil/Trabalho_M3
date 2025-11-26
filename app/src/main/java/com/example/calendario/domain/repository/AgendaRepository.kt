@@ -1,10 +1,12 @@
+
 package com.example.calendario.domain.repository
 
-import com.example.calendario.domain.model.Event
+import com.example.calendario.data.local.db.EventEntity
+
 import kotlinx.coroutines.flow.Flow
 
 interface AgendaRepository {
-    fun observeEvents(): Flow<List<Event>>
-    suspend fun addEvent(event: Event)
-    suspend fun deleteEvent(event: Event)
+    fun observeEvents(): Flow<List<EventEntity>>
+    suspend fun addEvent(event: com.example.calendario.data.local.EventEntity)
+    suspend fun deleteEvent(event: EventEntity)
 }
