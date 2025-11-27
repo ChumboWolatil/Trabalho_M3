@@ -1,8 +1,7 @@
-package com.example.calendario.data.local.db
+package com.example.calendario.data.local
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey
-
 
 @Entity(tableName = "events")
 data class EventEntity(
@@ -11,6 +10,3 @@ data class EventEntity(
     val description: String?,
     val timestamp: Long
 )
-
-fun EventEntity.toDomain() = EventEntity(id, title, description, timestamp)
-fun EventEntity.toEntity() = EventEntity(id, title, description, timestamp)

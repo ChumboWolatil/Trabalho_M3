@@ -1,6 +1,6 @@
 package com.example.calendario.ui.state
 
-import androidx.navigation.NavBackStackEntry
+
 
 sealed class AgendaEvent {
     object Load : AgendaEvent()

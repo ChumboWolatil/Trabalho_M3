@@ -6,6 +6,7 @@ import com.example.calendario.data.local.EventEntity
 import com.example.calendario.domain.repository.AgendaRepository
 import com.example.calendario.ui.state.AgendaEvent
 import com.example.calendario.ui.state.AgendaState
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.flow.MutableStateFlow
 import kotlinx.coroutines.flow.StateFlow
 import kotlinx.coroutines.flow.asStateFlow
@@ -13,7 +14,7 @@ import kotlinx.coroutines.flow.update
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 import kotlin.collections.find
-
+@HiltViewModel
 class AgendaViewModel @Inject constructor(
     private val repo: AgendaRepository
 ) : ViewModel() {

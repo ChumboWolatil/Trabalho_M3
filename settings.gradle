@@ -13,5 +13,6 @@ dependencyResolutionManagement {
         mavenCentral()
     }
 }
+
+rootProject.name = "calendario"
 include ':app'
-rootProject.name = 'calendario'

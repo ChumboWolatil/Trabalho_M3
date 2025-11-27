@@ -1,18 +1,18 @@
 package com.example.calendario.data.local.db
 
 import androidx.room.*
+import com.example.calendario.data.local.EventEntity
 import kotlinx.coroutines.flow.Flow
 
 @Dao
 interface EventDao {
 
-    @Query("SELECT * FROM events ORDER BY timestamp DESC")
-    fun getEvents(): Flow<List<EventEntity>>
+    @Query("SELECT * FROM events ORDER BY timestamp ASC")
+    fun observeEvents(): Flow<List<EventEntity>>
 
     @Insert(onConflict = OnConflictStrategy.REPLACE)
-    suspend fun insertEvent(event: com.example.calendario.data.local.EventEntity)
+    suspend fun insert(event: EventEntity)
 
     @Delete
-    suspend fun deleteEvent(event: EventEntity)
+    suspend fun delete(event: EventEntity)
 }
-

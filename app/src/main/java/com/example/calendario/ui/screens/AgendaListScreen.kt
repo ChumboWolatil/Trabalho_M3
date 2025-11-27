@@ -25,7 +25,7 @@ import kotlin.collections.map
 @RequiresApi(Build.VERSION_CODES.O)
 @Composable
 fun AgendaListScreen(
-    events: List<com.example.calendario.data.local.db.EventEntity>,
+    events: List<EventEntity>,
     onAdd: () -> Unit,
     onDelete: (String) -> Unit
 ) {

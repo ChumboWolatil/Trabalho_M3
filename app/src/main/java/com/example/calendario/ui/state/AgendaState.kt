@@ -1,6 +1,6 @@
 package com.example.calendario.ui.state
 
-import com.example.calendario.data.local.db.EventEntity
+import com.example.calendario.data.local.EventEntity
 
 
 
